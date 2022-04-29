@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <h1>Testlar</h1><br>
+    {% for topic in topics %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ topic.name }}</h5>
+                <p class="card-text">Jami savollar soni: {{ topic.question_set.count }}</p>
+                <a href="{% url 'question' topic.slug %}" class="btn btn-primary">Testni boshlash</a>
+            </div>
+        </div><br>
+    {% endfor %}
+{% endblock %}

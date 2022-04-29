@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <h1>Natijalar Ruyxati</h1>
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Ism Familiya</th>
+            <th scope="col">Mavzu</th>
+            <th scope="col">Umumiy savol</th>
+            <th scope="col">To'g'ri Javob</th>
+            <th scope="col">Ball</th>
+            <th scope="col">Sana</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in results %}
+            <tr>
+                <td>{{ r.user.username }}</td>
+                <td>{{ r.topic.name }}</td>
+                <td>{{ r.total_question }}</td>
+                <td>{{ r.correct }}</td>
+                <td>{{ r.total }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
